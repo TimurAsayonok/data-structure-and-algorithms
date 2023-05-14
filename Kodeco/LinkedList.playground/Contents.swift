@@ -21,3 +21,12 @@ Example.example(of: "Push") {
     
     print(linkedList)
 }
+
+Example.example(of: "Append") {
+    var linkedList = LinkedList<Int>()
+    linkedList.append(1)
+    linkedList.append(2)
+    linkedList.append(3)
+    
+    print(linkedList)
+}

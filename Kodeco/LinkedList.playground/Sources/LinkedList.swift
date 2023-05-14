@@ -22,6 +22,22 @@ extension LinkedList {
     }
 }
 
+// MARK: Append -
+extension LinkedList {
+    public mutating func append(_ value: Value) {
+        guard isEmpty == false else {
+            push(value)
+            return
+        }
+        
+        tail?.next = Node(value: value)
+        tail = tail?.next
+    }
+}
+
+// MARK: Insert(after):
+extension 
+
 extension LinkedList: CustomStringConvertible {
     public var description: String {
         guard let head else {
