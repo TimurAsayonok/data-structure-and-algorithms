@@ -1,6 +1,6 @@
 import Foundation
 
-public class LinkedList<Value> {
+public struct LinkedList<Value> {
     public var head: Node<Value>?
     public var tail: Node<Value>?
     
@@ -8,6 +8,17 @@ public class LinkedList<Value> {
     
     public var isEmpty: Bool {
         return head == nil
+    }
+}
+
+// MARK: Push -
+extension LinkedList {
+    public mutating func push(_ value: Value) {
+        head = Node(value: value, next: head)
+        
+        if tail == nil {
+            tail = head
+        }
     }
 }
 
