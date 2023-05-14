@@ -28,5 +28,21 @@ Example.example(of: "Append") {
     linkedList.append(2)
     linkedList.append(3)
     
+    let nodeAt2 = linkedList.node(at: 2)
     print(linkedList)
+}
+
+Example.example(of: "Insert(after)") {
+    var linkedList = LinkedList<Int>()
+    
+    linkedList.push(3)
+    linkedList.push(2)
+    linkedList.push(1)
+    
+    print("Before: \(linkedList)")
+    
+    let node1 = linkedList.node(at: 1)
+    
+    linkedList.insert(4, after: node1!)
+    print("After: \(linkedList)")
 }

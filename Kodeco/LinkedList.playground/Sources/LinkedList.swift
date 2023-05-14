@@ -36,7 +36,29 @@ extension LinkedList {
 }
 
 // MARK: Insert(after):
-extension 
+extension LinkedList {
+    public func node(at index: Int) -> Node<Value>? {
+        var currentNode = head
+        var currentIndex = 0
+        
+        while currentNode != nil && currentIndex < index {
+            currentNode = currentNode?.next
+            currentIndex += 1
+        }
+        
+        return currentNode
+    }
+    
+
+    public mutating func insert(_ value: Value, after node: Node<Value>) {
+        guard tail !== node else {
+            append(value)
+            return
+        }
+        
+        node.next = Node(value: value, next: node.next)
+    }
+}
 
 extension LinkedList: CustomStringConvertible {
     public var description: String {
