@@ -46,3 +46,43 @@ Example.example(of: "Insert(after)") {
     linkedList.insert(4, after: node1!)
     print("After: \(linkedList)")
 }
+
+Example.example(of: "Pop method") {
+    var linkedList = LinkedList<Int>()
+    
+    linkedList.append(2)
+    linkedList.append(3)
+    
+    print("Before: \(linkedList)")
+    let removedValue = linkedList.pop()
+    
+    print("After: \(linkedList), value: \(removedValue)")
+}
+
+Example.example(of: "removeLast") {
+    var linkedList = LinkedList<Int>()
+    
+    linkedList.append(2)
+    linkedList.append(3)
+    linkedList.append(4)
+    
+    print("Before: \(linkedList)")
+    let removedValue = linkedList.removeLast()
+    
+    print("After: \(linkedList), value: \(removedValue)")
+}
+
+Example.example(of: "remove(after:)") {
+    var linkedList = LinkedList<Int>()
+    
+    linkedList.append(2)
+    linkedList.append(3)
+    linkedList.append(4)
+    
+    let nodeToFind = linkedList.node(at: 0)!
+    
+    print("Before: \(linkedList), nodeToFind: \(nodeToFind)")
+    let removedValue = linkedList.remove(after: nodeToFind)
+    
+    print("After: \(linkedList), value: \(removedValue)")
+}

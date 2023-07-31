@@ -60,6 +60,58 @@ extension LinkedList {
     }
 }
 
+// MARK: Pop:
+extension LinkedList {
+    public mutating func pop() -> Value? {
+        defer {
+            head = head?.next
+            if isEmpty {
+                tail = nil
+            }
+        }
+        return head?.value
+    }
+}
+
+// MARK: RemoveLast:
+extension LinkedList {
+    public mutating func removeLast() -> Value? {
+        guard let head = head else {
+            return nil
+        }
+        
+        guard head.next != nil else {
+            return pop()
+        }
+        
+        var prev = head
+        var current = head
+        
+        while let next = current.next {
+            prev = current
+            current = next
+        }
+        
+        prev.next = nil
+        tail = prev
+        return current.value
+    }
+}
+
+// MARK: remove(after:)
+extension LinkedList {
+    public mutating func remove(after node: Node<Value>) -> Value? {
+        defer {
+            if node.next === tail {
+                tail = node
+            }
+            node.next = node.next?.next
+        }
+        
+        return node.next?.value
+    }
+}
+
 extension LinkedList: CustomStringConvertible {
     public var description: String {
         guard let head else {
